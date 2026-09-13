@@ -1,121 +1,39 @@
-# 🚀 [Your Project Title Here]
+# RouteWise AI 🚢
 
-> ⚠️ **Replace everything in `[ ]` brackets with your actual content before submission.**
+## Team
+**Name:** CHARUSAT Innovators
+**Track:** AI
+**Lead:** Ayush Vyas (D25IT130@CHARUSAT.EDU.IN)
+**Members:** [Add Member 2 Name], [Add Member 3 Name], [Add Member 4 Name]
 
----
+## Problem Statement
+Logistics teams manage millions of dollars in temperature-sensitive cargo (cold-chain), but tracking is highly fragmented. When global disruptions occur (extreme weather, port strikes), teams cannot manually cross-reference weather APIs with active shipments fast enough, resulting in catastrophic cargo spoilage and supply chain bottlenecks.
 
-## 👥 Team
+## Solution
+RouteWise AI is an intelligent supply chain copilot powered by IBM watsonx. It acts as an AI assistant that instantly correlates active fleet IoT data with live weather/disruption APIs via MCP connectors, allowing managers to query their supply chain in natural language and receive automated rerouting recommendations before cargo spoils.
 
-| Field | Value |
-|---|---|
-| **Team Name** | [Your Team Name] |
-| **Track** | [AI / DevOps / Sustainability / Open] |
-| **Team Lead** | [Name] — [email@ibm.com] |
-| **Members** | [Name 1], [Name 2], [Name 3] |
+## Key Features
+- **IBM Bob Conversational UI:** Natural language chat interface for non-technical logistics managers to query complex fleet data.
+- **MCP Disruption Integration:** Connects to external APIs to simulate live weather and port strike alerts.
+- **Cold-Chain IoT Monitoring:** Automatically flags temperature excursions across active shipments.
+- **AI Rerouting Engine:** Suggests cost-optimized rerouting options to avoid active disruption zones.
 
----
+## Tech Stack
+- **Frontend & App Logic:** Python, Streamlit, Pandas
+- **AI Integration:** IBM Bob Copilot, watsonx.ai (Granite models)
+- **Data Connectivity:** Model Context Protocol (MCP)
 
-## 🎯 Problem Statement
+## How to Run
+Please see [docs/setup-guide.md](docs/setup-guide.md) for full installation and execution instructions.
 
-> In 2–3 sentences: What problem does your project solve? Who experiences this problem?
+## Demo
+- **Video Walkthrough:** [Insert YouTube/Loom Link Here]
+- **Live Demo:** NOT DEPLOYED (Local Execution via Streamlit)
+- Screenshots are available in the `demo/screenshots/` folder.
 
-[Describe the real-world problem your project addresses. Be specific about who the user is and what pain point they face.]
+## Known Limitations
+- The current implementation uses simulated IoT data and mocked weather disruption alerts rather than a live production database.
+- Rerouting logic is currently rule-based and heavily simulated for demo purposes rather than querying a live global mapping API.
 
----
-
-## 💡 Solution
-
-> In 2–3 sentences: What did you build? How does it solve the problem above?
-
-[Describe your solution clearly. Explain the core mechanism — what makes it work.]
-
----
-
-## ✨ Key Features
-
-- **Feature 1:** [Brief description — e.g., "Real-time anomaly detection using watsonx.ai"]
-- **Feature 2:** [Brief description]
-- **Feature 3:** [Brief description]
-- **Feature 4:** [Optional]
-- **Feature 5:** [Optional]
-
----
-
-## 🛠️ Tech Stack
-
-| Category | Technologies |
-|---|---|
-| **Languages** | [e.g., Python, TypeScript] |
-| **Frameworks** | [e.g., FastAPI, React] |
-| **IBM Technologies** | [e.g., watsonx.ai, IBM Bob, IBM Cloud] |
-| **Databases** | [e.g., PostgreSQL, Redis] |
-| **Other** | [e.g., Docker, GitHub Actions] |
-
----
-
-## 📁 Repository Structure
-
-```
-├── src/                  # All source code
-├── docs/                 # Written documentation
-│   ├── problem-statement.md
-│   ├── solution-overview.md
-│   ├── architecture.md
-│   └── setup-guide.md
-├── demo/                 # Demo artifacts
-│   ├── screenshots/      # App screenshots
-│   └── demo-video-link.txt  # Link to demo video
-├── presentation/         # Slide deck
-└── submission.yaml       # Structured submission metadata
-```
-
----
-
-## ⚡ How to Run
-
-> **Copy these exact steps from your [`docs/setup-guide.md`](docs/setup-guide.md)**
-
-```bash
-# 1. Clone the repo
-git clone https://github.com/[your-repo].git
-cd [your-repo]
-
-# 2. Install dependencies
-[your install command here]
-
-# 3. Configure environment
-cp .env.example .env
-# Edit .env with your values
-
-# 4. Run the project
-[your run command here]
-```
-
----
-
-## 🖥️ Demo
-
-| Artifact | Link |
-|---|---|
-| 📹 Demo Video | [See demo/demo-video-link.txt](demo/demo-video-link.txt) |
-| 🌐 Live Demo | [See demo/live-demo-url.txt](demo/live-demo-url.txt) |
-| 🖼️ Screenshots | [See demo/screenshots/](demo/screenshots/) |
-| 📊 Presentation | [See presentation/slides.pdf](presentation/) |
-
----
-
-## ⚠️ Known Limitations
-
-> Be honest — judges appreciate transparency over overclaiming.
-
-- [Limitation 1: e.g., "Authentication is mocked — not production-ready"]
-- [Limitation 2: e.g., "Only tested on Chrome"]
-- [Limitation 3: e.g., "Feature X is scaffolded but not fully implemented"]
-
----
-
-## 🏅 What We're Most Proud Of
-
-[Tell the judges what part of your submission is strongest and worth paying close attention to.]
-
----
+## What We're Most Proud Of
+We are incredibly proud of how quickly we integrated the IBM Bob conversational interface to replace a complex, multi-dashboard logistics workflow with a simple, natural language chat experience.

@@ -1,49 +1,39 @@
-# Architecture
+# Technical Architecture
 
-## System Architecture
+RouteWise AI uses a modern, AI-first architecture designed to integrate IBM Bob's Copilot capabilities and watsonx.ai for intelligent decision making.
 
-[Describe the overall architecture of your system. Replace the Mermaid diagram below with your actual architecture.]
+## System Components & Data Flow
 
 ```mermaid
 graph TD
-    A[User / Browser] -->|HTTP| B[Frontend - React]
-    B -->|REST API| C[Backend - FastAPI]
-    C -->|SDK| D[watsonx.ai]
-    C -->|Query| E[PostgreSQL]
-    C -->|Publish| F[Slack Webhook]
-    D -->|Inference Result| C
+    A[Logistics Manager] -->|Natural Language Query| B[Streamlit Dashboard UI]
+    B -->|Chat Prompt| C[IBM Bob CLI / Agent]
+    C -->|Fetch Weather/Strikes| D[MCP Connector - Disruption API]
+    C -->|Fetch Fleet Data| E[Simulated PostgreSQL / IoT Database]
+    D --> C
+    E --> C
+    C -->|Context + Query| F[watsonx.ai Granite]
+    F -->|Classification & Routing Logic| C
+    C -->|Actionable Summary| B
 ```
 
-## Components
+## Component Table
 
 | Component | Technology | Responsibility |
-|---|---|---|
-| Frontend | [e.g., React 18] | [e.g., Dashboard UI, user interaction] |
-| Backend API | [e.g., FastAPI] | [e.g., Business logic, orchestration] |
-| AI / ML | [e.g., watsonx.ai] | [e.g., Anomaly scoring, classification] |
-| Database | [e.g., PostgreSQL] | [e.g., Storing pipeline events and scores] |
-| Notifications | [e.g., Slack API] | [e.g., Alerting on threshold breaches] |
+|-----------|------------|----------------|
+| **Frontend UI** | Python (Streamlit) | Provides the interactive dashboard, map visualization, and Bob Copilot chat interface. |
+| **AI Agent** | IBM Bob | Orchestrates user queries, manages conversation context, and acts as the bridge to external data. |
+| **LLM Engine** | watsonx.ai | Analyzes supply chain data context, classifies risk severity, and generates natural language recommendations. |
+| **Data Connectors** | MCP (Model Context Protocol) | Connects the AI to live external data feeds (simulated weather and port strike APIs). |
 
-## Data Flow
+## Data Movement End-to-End
+1. The user inputs a query into the Streamlit UI.
+2. The UI passes the query to the IBM Bob agent.
+3. The agent recognizes the need for external context and triggers an MCP connector to fetch live disruption alerts (e.g., hurricane warnings).
+4. The agent simultaneously fetches internal active fleet data (location, cargo type, IoT temperature).
+5. All context is bundled and sent to watsonx.ai, which synthesizes the data and generates a rerouting plan.
+6. The plan is passed back through the agent to the UI for the user to read.
 
-[Describe how data moves through your system from input to output.]
-
-1. [e.g., Pipeline logs are ingested via a webhook from GitHub Actions]
-2. [e.g., Logs are preprocessed and chunked into 512-token segments]
-3. [e.g., Each chunk is sent to the watsonx.ai inference endpoint]
-4. [e.g., Anomaly scores are stored in PostgreSQL]
-5. [e.g., The React dashboard polls the API every 30 seconds to refresh]
-
-## Security Considerations
-
-[Note any security decisions relevant to the architecture — even if basic.]
-
-- [e.g., API keys stored in environment variables, never committed to git]
-- [e.g., All API routes require a Bearer token]
-- [e.g., Database credentials rotated via IBM Secrets Manager]
-
-## Scalability Notes
-
-[Optional: how would this scale beyond the hackathon prototype?]
-
-[e.g., "The FastAPI backend is stateless and could be horizontally scaled behind a load balancer. The watsonx.ai calls are the bottleneck and would benefit from request batching."]
+## Security and Scalability Notes
+- **Security:** No real credentials are hardcoded. Environment variables are managed securely via `.env`.
+- **Scalability:** The frontend is entirely stateless and can be containerized using Docker, allowing it to easily scale horizontally on IBM Cloud Code Engine or Kubernetes clusters.

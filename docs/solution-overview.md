@@ -1,41 +1,18 @@
 # Solution Overview
 
-## What We Built
+## The Core Mechanism
+RouteWise AI transforms supply chain management from a reactive, dashboard-heavy process into a proactive, conversational experience. The core mechanism involves three steps:
+1. **Data Ingestion:** The system pulls active fleet statuses and cold-chain IoT temperature data into a unified dataframe.
+2. **Disruption Correlation:** Using MCP (Model Context Protocol) connectors, the system ingests external disruption data (simulated weather events, port strikes).
+3. **AI Orchestration:** IBM Bob and watsonx.ai analyze the intersection of the disruption zones and the active fleet. When a user asks a question, the AI generates a natural language summary identifying compromised shipments and provides an actionable rerouting plan.
 
-[Describe your solution in plain language. Avoid jargon — write as if explaining to a smart colleague unfamiliar with your tech stack.]
-
-## How It Works
-
-[Explain the core mechanism step by step. A numbered list or simple flow works well here.]
-
-1. [Step 1: e.g., "User connects their GitHub repository via OAuth"]
-2. [Step 2: e.g., "The system ingests pipeline logs and feeds them to watsonx.ai"]
-3. [Step 3: e.g., "An anomaly score is computed and displayed on the dashboard"]
-4. [Step 4: e.g., "Alerts are sent to Slack when the score exceeds a threshold"]
-
-## Architecture Diagram
-
-> See [`architecture.md`](architecture.md) for the detailed diagram.
-
-[Optionally include a simple ASCII or Mermaid diagram here for quick reference.]
-
-```
-[User] → [Frontend: React] → [API: FastAPI] → [watsonx.ai] → [Dashboard]
-                                    ↓
-                             [PostgreSQL DB]
-```
+## Difference from Naive Alternatives
+Naive supply chain solutions rely on rule-based alerts (e.g., "Alert: Truck 1042 is delayed by 48 hours"). This causes massive alert fatigue for operators. 
+RouteWise AI is different because it understands **context**. It recognizes that Truck 1042 is carrying *vaccines*, meaning a 48-hour delay will cause a temperature excursion. It immediately escalates this to "CRITICAL" and suggests an alternative route.
 
 ## Key Design Decisions
+- **Streamlit Framework:** We chose Python and Streamlit to build the frontend. This allowed us to rapidly prototype a data-rich UI with interactive dataframes and maps while seamlessly integrating our backend AI logic in a single file.
+- **Conversational UI over Dashboards:** Logistics managers are not data scientists. We designed the primary interaction method to be a chat window ("IBM Bob Copilot") because asking "Which ships are stuck in the storm?" is infinitely faster than filtering through 5 different database views.
 
-| Decision | Rationale |
-|---|---|
-| [e.g., Used watsonx.ai for anomaly detection] | [e.g., Pre-trained models reduced time-to-value vs. building from scratch] |
-| [Decision 2] | [Rationale 2] |
-| [Decision 3] | [Rationale 3] |
-
-## IBM Technologies Used
-
-[Explain specifically HOW you used each IBM technology — not just that you used it.]
-
-- **[IBM Tech 1, e.g., watsonx.ai]:** [How it was used — e.g., "Used the `ibm/granite-13b-instruct-v2` model via the Python SDK to classify anomaly types from log text."]
-- **[IBM Tech 2]:** [How it was used]
+## User Experience
+The user logs into a single screen. On the right, they see high-level active disruptions and a map of their fleet. On the left, they have the IBM Bob chat interface. The user simply types their concern into the chat, and the AI instantly outputs a summarized impact report and recommended action plan.

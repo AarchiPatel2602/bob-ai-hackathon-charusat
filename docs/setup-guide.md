@@ -1,79 +1,53 @@
 # Setup Guide
 
-> **This file is read by the automated evaluation pipeline. Be precise and complete.**
+This guide explains how to install and run the RouteWise AI demo on your local machine.
 
 ## Prerequisites
-
-Before you begin, ensure you have the following installed:
-
-- [ ] [e.g., Python 3.11+]
-- [ ] [e.g., Node.js 18+]
-- [ ] [e.g., Docker Desktop]
-- [ ] [e.g., An IBM Cloud account with watsonx.ai access]
+- Python 3.9 or higher installed
+- Git installed
+- Terminal / Command Prompt
 
 ## Environment Variables
+We have provided an `.env.example` file in the `src/` directory. For this local demo, no external secret keys are required as the data is mocked for the presentation.
 
-Copy `.env.example` to `.env` and fill in the values:
+## Exact Install Commands
+Open your terminal and run the following commands:
 
+1. Clone the repository and navigate to the source folder:
 ```bash
-cp .env.example .env
+git clone https://github.com/[YOUR-USERNAME]/bob-ai-hackathon-[YOUR-TEAM-NAME].git
+cd bob-ai-hackathon-[YOUR-TEAM-NAME]/src
 ```
 
-| Variable | Description | Required |
-|---|---|---|
-| `WATSONX_API_KEY` | Your IBM watsonx.ai API key | Yes |
-| `WATSONX_PROJECT_ID` | Your watsonx.ai project ID | Yes |
-| `DATABASE_URL` | PostgreSQL connection string | Yes |
-| `SLACK_WEBHOOK_URL` | Slack webhook for alerts | No |
-
-## Installation
-
+2. Create a virtual environment:
 ```bash
-# 1. Clone the repository
-git clone https://github.com/[your-org]/[your-repo].git
-cd [your-repo]
-
-# 2. Install backend dependencies
-[your command — e.g.: pip install -r requirements.txt]
-
-# 3. Install frontend dependencies (if applicable)
-[your command — e.g.: cd frontend && npm install]
-
-# 4. Set up the database (if applicable)
-[your command — e.g.: python manage.py migrate]
+python -m venv .venv
 ```
 
-## Running the Application
+3. Activate the virtual environment:
+- **Windows:** `.venv\Scripts\activate`
+- **macOS/Linux:** `source .venv/bin/activate`
 
+4. Install the required dependencies:
 ```bash
-# Start the backend
-[your command — e.g.: uvicorn app.main:app --reload]
-
-# Start the frontend (in a separate terminal, if applicable)
-[your command — e.g.: cd frontend && npm run dev]
+pip install -r requirements.txt
 ```
 
-The application will be available at: `http://localhost:[PORT]`
-
-## Running Tests
-
+## Exact Run Commands
+Once installed and activated, start the web application:
 ```bash
-[your test command — e.g.: pytest tests/ -v]
+streamlit run app.py
 ```
 
-## Quick Demo (Optional)
-
-If you have a demo script or sample data to showcase the project quickly:
-
-```bash
-[e.g.: python demo/seed_demo_data.py]
-[e.g.: open http://localhost:8000/demo]
-```
+## How to Verify It's Working
+1. Your terminal should output a local URL, typically `http://localhost:8501`.
+2. Open that URL in your web browser.
+3. You should see the RouteWise AI dashboard with the simulated map.
+4. Type a query in the left sidebar (e.g., "How does the storm affect us?") and click **Ask Bob** to verify the AI assistant responds.
 
 ## Troubleshooting
 
-| Issue | Solution |
-|---|---|
-| [e.g., `ModuleNotFoundError`] | [e.g., Run `pip install -r requirements.txt` again] |
-| [e.g., Database connection refused] | [e.g., Ensure PostgreSQL is running: `docker compose up db`] |
-| [e.g., watsonx.ai 401 error] | [e.g., Check `WATSONX_API_KEY` in your `.env` file] |
+| Error | Cause & Solution |
+|-------|------------------|
+| `streamlit is not recognized as an internal or external command` | The virtual environment is not activated, or you forgot to run `pip install -r requirements.txt`. |
+| Port 8501 is already in use | Run `streamlit run app.py --server.port 8502` to force a different port. |
