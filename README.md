@@ -4,7 +4,7 @@
 **Name:** CHARUSAT Innovators
 **Track:** AI
 **Lead:** Ayush Vyas (D25IT130@CHARUSAT.EDU.IN)
-**Members:** [Add Member 2 Name], [Add Member 3 Name], [Add Member 4 Name]
+**Members:** [Aarchi Patel], [Nitya Chokshi], [Hitarth Chauhan]
 
 ## Problem Statement
 Logistics teams manage millions of dollars in temperature-sensitive cargo (cold-chain), but tracking is highly fragmented. When global disruptions occur (extreme weather, port strikes), teams cannot manually cross-reference weather APIs with active shipments fast enough, resulting in catastrophic cargo spoilage and supply chain bottlenecks.
