@@ -1,47 +1,64 @@
-# Source Code
+# RouteWise AI — Source Code Architecture
 
-Place all your project's source code in this folder.
+All application source code for RouteWise AI 🚢 is structured under `src/`:
 
-## Structure Guidelines
-
-Organize your code logically. Here are common patterns — use whatever fits
-your project:
-
-### Web Application
 ```
 src/
-  backend/        ← API server code
-  frontend/       ← UI code
-  shared/         ← Shared utilities/types
+├── backend/                  # FastAPI Application & Decision Engines
+│   ├── app/
+│   │   ├── api/              # REST Endpoints (auth, shipments, disruptions, fleet, alerts, ai, mcp)
+│   │   ├── engines/          # 10 Decision Engines (risk, disruption, route, cold-chain, fleet, ai_service)
+│   │   ├── models/           # SQLAlchemy Database Entities
+│   │   ├── schemas/          # Pydantic Schemas & Request/Response Validators
+│   │   ├── config.py         # App Configuration & Settings
+│   │   ├── database.py       # DB Session & Engine
+│   │   └── main.py           # FastAPI Entry Point
+│   ├── tests/                # Automated Pytest Suite (19 unit & integration tests)
+│   └── seed.py               # Database Seeder (50+ shipments, fleet, disruptions)
+│
+├── frontend/                 # React 19 + TypeScript + Vite + Tailwind CSS SPA
+│   ├── src/
+│   │   ├── components/       # Layout, Modals, Shipment Map (Leaflet), Badges
+│   │   ├── context/          # JWT Auth Context
+│   │   ├── pages/            # Dashboard, Shipments, Disruptions, Fleet, Alerts, BobCopilotPage
+│   │   ├── services/api.ts   # Typed REST Client
+│   │   └── types/            # TypeScript Interfaces
+│   ├── package.json          # Node Dependencies & Build Scripts
+│   └── vite.config.ts        # Vite Bundler Configuration
+│
+├── mcp/                      # Model Context Protocol (MCP) Server
+│   ├── routewise_mcp.py      # MCP Tool Provider & JSON-RPC Runner
+│   └── __init__.py
+│
+├── app.py                    # Streamlit Companion Copilot Application
+├── requirements.txt          # Unified Python Dependencies
+├── .env.example              # Environment Configuration Template
+└── README.md                 # This Documentation
 ```
 
-### Data / AI Project
-```
-src/
-  data/           ← Data ingestion / preprocessing
-  models/         ← ML model code
-  api/            ← Serving layer
-  notebooks/      ← Jupyter notebooks (exploration)
-```
+## Running the Components
 
-### CLI / Script-based Tool
-```
-src/
-  cli/            ← CLI entry points
-  lib/            ← Core logic
-  utils/          ← Helpers
+### 1. Backend REST API (FastAPI)
+```bash
+# From workspace root or inside src:
+python -m uvicorn backend.app.main:app --host 127.0.0.1 --port 8000 --reload
+# Interactive Swagger Documentation: http://127.0.0.1:8000/docs
 ```
 
-## Important Files to Include
+### 2. Frontend Command Center (React + Vite)
+```bash
+cd src/frontend
+npm install
+npm run dev -- --host 127.0.0.1 --port 5173
+# Web Application: http://127.0.0.1:5173
+```
 
-- `requirements.txt` or `package.json` — dependency manifest
-- `.env.example` — template for environment variables (NEVER commit `.env`)
-- Any database migration files
-- Configuration files
+### 3. Model Context Protocol (MCP) Server
+```bash
+python -m src.mcp.routewise_mcp --list-tools
+```
 
-## What NOT to Include in src/
-
-- `.env` files with real secrets
-- Large binary files (use Git LFS or link externally)
-- `node_modules/` or `venv/` (these are in `.gitignore`)
-- Build artifacts (`dist/`, `build/`, `__pycache__/`)
+### 4. Streamlit Companion Dashboard
+```bash
+streamlit run src/app.py
+```

@@ -1,15 +1,15 @@
-https://youtu.be/dQw4w9WgXcQ
+https://www.youtube.com/watch?v=RouteWiseAI-Demo
 
-Replace the URL above with a link to your demo video.
-
-Accepted platforms:
-  - YouTube (public or unlisted)
-  - Loom (https://www.loom.com/share/...)
-  - IBM Box (https://ibm.box.com/s/...)
-  - Google Drive (set to "Anyone with the link can view")
-
-Video requirements:
-  - Length: 3–5 minutes maximum
-  - Must show the application running (not just slides)
-  - Should walk through at least one key feature end-to-end
-  - Audio narration strongly recommended
+# IMPORTANT FOR TEAM:
+# Replace the URL on line 1 with your recorded demo video link (YouTube unlisted, Loom, or Google Drive)
+# before final submission.
+# 
+# Video requirements:
+#   - Length: 3–5 minutes maximum
+#   - Shows RouteWise AI running:
+#       * Control tower overview & KPIs
+#       * SH-1024 Vaccines + Mumbai Port Strike disruption
+#       * Cold-Chain IoT thermal excursion simulation (8.4°C breach)
+#       * Multimodal reroute approval (Alternative A: Colombo Transshipment Hub)
+#       * Idle fleet redeployment (TRUCK-205 in Ahmedabad -> Mumbai)
+#       * Conversational IBM Bob Copilot Q&A

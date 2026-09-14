@@ -86,6 +86,10 @@ demo/*.mkv
 data/
 logs/
 *.log
+*.db
+*.sqlite3
+supplyguard.db
+routewise.db
 
 # ── Jupyter Notebooks (optional: remove if you want to commit notebooks) ──────
 # .ipynb_checkpoints/

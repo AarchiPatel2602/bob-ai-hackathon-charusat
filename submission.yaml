@@ -1,5 +1,5 @@
 team:
-  name: "Innovators" 
+  name: "CHARUSAT Innovators"
   track: "AI"
   lead:
     name: "Ayush Vyas"
@@ -9,21 +9,29 @@ team:
       email: "D25IT133@charusat.edu.in"
     - name: "Nitya Chokshi"
       email: "D25ME097@charusat.edu.in"
-    - name: "Hitarth Chahuan"
+    - name: "Hitarth Chauhan"
       email: "24ME006@charusat.edu.in"
 
 submission:
-  title: "RouteWise AI - Supply Chain Disruption Assistant"
+  title: "RouteWise AI - Intelligent Supply Chain Copilot & Resilience Platform"
   problem_statement: >
-    Supply chain disruptions like weather events and port strikes cascade across shipments, 
-    making it impossible for logistics teams to track manually. Critical cold-chain assets 
-    (vaccines, perishables) are often spoiled because delays are discovered too late.
+    Global supply chain disruptions such as weather events, port strikes, and canal bottlenecks
+    frequently intersect active shipment corridors. Logistics coordinators managing high-value,
+    temperature-sensitive cargo (pharmaceuticals, vaccines, perishables) face fragmented data streams.
+    Manually cross-referencing external disruption bulletins, IoT sensor logs, and fleet capacity
+    takes hours, causing irreversible cold-chain excursions, delay compounding, and severe financial losses.
   solution_summary: >
-    RouteWise AI is an intelligent logistics copilot powered by IBM watsonx. It continuously 
-    monitors fleet IoT data and external disruption feeds. Using a conversational interface, 
-    managers can instantly identify at-risk shipments and receive AI-generated rerouting recommendations.
+    RouteWise AI is an intelligent supply chain copilot and resilience control tower powered by IBM
+    technologies (IBM Bob, watsonx / Granite) and Model Context Protocol (MCP) data connectors.
+    It continuously correlates disruptions with active shipments, computes deterministic 0-100 risk scores,
+    detects predictive cold-chain thermal breaches, identifies idle fleet capacity for surge redeployment,
+    evaluates ranked multimodal bypass corridors, and provides a conversational AI interface with
+    full factual grounding and graceful offline deterministic fallback.
   key_features:
-    - "Conversational AI assistant for natural language querying of active shipments"
-    - "Real-time disruption mapping (simulated weather/port strikes) via MCP connectors"
-    - "Automated IoT cold-chain temperature anomaly detection"
-    - "Predictive rerouting and idle fleet redeployment recommendations"
+    - "Conversational IBM Bob AI Copilot for natural language querying of active network risks, excursions, and reroutes"
+    - "Model Context Protocol (MCP) server exposing 6 standardized supply chain data and simulation tools"
+    - "Deterministic 0-100 risk scoring engine factoring disruption exposure, schedule delay, cargo value, and thermal alerts"
+    - "Cold-chain IoT telemetry monitor with predictive thermal slope breach detection (2.0°C to 8.0°C compliance)"
+    - "Autonomous multimodal rerouting engine evaluating bypass corridors with delta time, cost, and projected risk"
+    - "Fleet utilisation engine identifying idle assets and recommending surge capacity repositioning"
+    - "Dual-tier interface: Enterprise React 19 + TypeScript control tower and lightweight Streamlit companion app"
