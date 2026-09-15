@@ -12,7 +12,7 @@
 
 ## 👥 Team Information
 
-- **Team Name:** CHARUSAT Innovators
+- **Team Name:** CoderGo
 - **Track:** AI
 - **Team Lead:** Ayush Vyas ([D25IT130@CHARUSAT.EDU.IN](mailto:D25IT130@CHARUSAT.EDU.IN))
 - **Team Members:**
